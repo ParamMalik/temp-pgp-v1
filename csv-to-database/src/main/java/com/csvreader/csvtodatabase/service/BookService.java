@@ -10,9 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.util.Arrays;
-import java.util.Base64;
+import java.io.ByteArrayInputStream;
+import java.io.FileReader;
 
 @Service
 @RequiredArgsConstructor
@@ -39,9 +38,12 @@ public class BookService {
         var bytesToEncrypt = byteArrayInputStream.readAllBytes();
 
         String s = new String(bytesToEncrypt);
-        System.out.println(s);
+        String s1 = s.replace("\"", "");
+        System.out.println(s1);
 
-        var encryptedByteArrayOutputStream = encryptor.encryption(bytesToEncrypt);
+//        var encryptedByteArrayOutputStream = encryptor.encryption(bytesToEncrypt);
+
+        encryptor.encryption(s1.getBytes());
 
         System.out.println("File Encrypted successfully");
     }
