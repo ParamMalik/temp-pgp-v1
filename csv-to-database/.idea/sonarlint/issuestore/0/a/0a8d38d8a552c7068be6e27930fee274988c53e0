@@ -1,0 +1,6 @@
+
+g	java:S116"SRename this field "FILEPATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ÷Ñ/
+X	java:S125*"<This block of commented-out lines of code should be removed.(ò£œç8åéÇš0
+V	java:S125/"<This block of commented-out lines of code should be removed.(Þ§™Šþÿÿÿÿ
+N	java:S1063"9Replace this use of System.out or System.err by a logger.(É†ˆø
+U	java:S106E"9Replace this use of System.out or System.err by a logger.(ÏŒµ8ŸØÄš0

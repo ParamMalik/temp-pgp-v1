@@ -29,21 +29,24 @@ public class BookService {
     public void getFileEncrypted() throws Exception {
 
         var csvMapper = new CsvMapper();
-        var columns = csvMapper.schemaFor(BookModel.class).withUseHeader(true);
+//        new CsvSchema.Builder().
+        var columns = csvMapper.schemaFor(BookModel.class).withUseHeader(true).withoutQuoteChar();
         var bookList = bookRepository.findAll();
+
         var byteArrayInputStream = new ByteArrayInputStream(csvMapper.writer(columns).writeValueAsBytes(bookList));
 
 
         // Getting Values of byteArrayInputStream in byte Array
         var bytesToEncrypt = byteArrayInputStream.readAllBytes();
 
-        String s = new String(bytesToEncrypt);
-        String s1 = s.replace("\"", "");
-        System.out.println(s1);
+//        String s = new String(bytesToEncrypt);
+//        System.out.println(s);
+//        String s1 = s.replace("\"", "");
+//        System.out.println(s1);
 
 //        var encryptedByteArrayOutputStream = encryptor.encryption(bytesToEncrypt);
 
-        encryptor.encryption(s1.getBytes());
+        encryptor.encryption(bytesToEncrypt);
 
         System.out.println("File Encrypted successfully");
     }
